@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script>
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+
+    // createElement 2번째 argument에는 property가 들어간다.
+    // createElement 3번째 argument에는 content(내용)가 들어간다.
+    const span = React.createElement(
+      "h3",
+      { 
+        key: "title",
+        id: "title",
+        onMouseEnter: () => console.log("mouse enter"),
+      }, 
+      "Hello, I'm a span"
+    );
+
+    const btn = React.createElement(
+      "button", 
+      {
+        key: "button",
+        style: { background: "tomato" },
+        onClick: () => console.log("i'm clicked"),
+      }, 
+      "Click me"
+    );
+
+    const container = React.createElement("div", { key: "container" }, [span, btn]);
+    
+    root.render(container);
+  </script>
+</html>

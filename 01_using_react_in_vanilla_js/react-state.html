@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+
+    const Container = () => (
+      <div key="container">
+        <span key="span">Total clicks: 0</span>
+        <button key="button">Click me</button>
+      </div>
+    );
+    
+    root.render(<Container />);
+  </script>
+</html>

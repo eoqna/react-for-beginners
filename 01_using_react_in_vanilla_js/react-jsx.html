@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+
+    function Title () {
+      return (
+        <h3 id="title" key="title" onMouseEnter={() => console.log("mouse enter")}>
+          Hello, I'm a title
+        </h3>
+      );
+    };
+
+    const Button = () => (
+      <button key="button" style={{ background: "tomato" }} onClick={() => console.log("im clicked")}>
+        Click me
+      </button>
+    );
+
+    const Container = () => (
+      <div key="container">
+        <Title />
+        <Button />
+      </div>
+    );
+    
+    root.render(<Container />);
+  </script>
+</html>
