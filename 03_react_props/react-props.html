@@ -9,18 +9,31 @@
   <script type="text/babel">
     const root = ReactDOM.createRoot(document.getElementById("root"));
 
-    function App() {
-      const [counter, setCounter] = React.useState(0);
-    
-      const onClick = () => {
-        // setCounter(counter + 1);
-        setCounter((current) => current + 1);
-      };
+    function SaveBtn() {
+      return (
+        <button 
+          style={{
+          background: "tomato",
+          color: "white",
+          padding: "10px 20px",
+          border: 0,
+          borderRadius: 10,
+          }}
+        >
+          Save Changes
+        </button>
+      );
+    };
 
+    function ConfirmBtn() {
+      return <button>Confirm</button>;
+    };
+
+    function App() {
       return (
         <div key="app">
-          <h3 key="h3">Total clicks: {counter}</h3>
-          <button key="button" onClick={onClick}>Click me</button>
+          <SaveBtn />
+          <ConfirmBtn />
         </div>
       );
     };
