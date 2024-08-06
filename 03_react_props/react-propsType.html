@@ -5,20 +5,21 @@
   </body>
   <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/prop-types@15.6/prop-types.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
     const root = ReactDOM.createRoot(document.getElementById("root"));
 
-    function Btn({ text, big }) {
+    function Btn({ text,fontSize = 12 }) {
       return (
-        <button 
+        <button
           style={{
             background: "tomato",
             color: "white",
             padding: "10px 20px",
             border: 0,
             borderRadius: 10,
-            fontSize: big ? 18 : 16
+            fontSize: fontSize,
           }}
         >
           {text}
@@ -26,11 +27,16 @@
       );
     };
 
+    Btn.propTypes = {
+      text: PropTypes.string.isRequired,
+      fontSize: PropTypes.number,
+    };
+
     function App() {
       return (
         <div key="app">
-          <Btn text="Save Changes" big={true} />
-          <Btn text="Continue" big={false} />
+          <Btn text="Save Changes" fontSize={18} />
+          <Btn text="Continue" />
         </div>
       );
     };
