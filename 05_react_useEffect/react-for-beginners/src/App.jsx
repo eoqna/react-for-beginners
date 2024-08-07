@@ -42,11 +42,16 @@ function App() {
 
 function Hello() {
   useEffect(() => {
-    console.log("created :)");
+    console.log("hi :)");
+    return () => console.log("bye :(");
+  }, []);
+  
+  useEffect(function() {
+    console.log("hi :)");
 
-    return () => {
-      console.log("destroyed :(");
-    }
+    return function() {
+      console.log("bye :(");
+    };
   }, []);
 
   return <h1>Hello</h1>;
